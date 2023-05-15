@@ -7,12 +7,12 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<EmployeeList/>} />
-      <Route path='/add' element={<EmployeeAdd/>} />
-      <Route path='/update/:id' element={<EmployeeUpdate/>} />
-    </Routes>
-      
+      <Routes>
+        <Route path='/' element={<EmployeeList />} />
+        <Route path='/add' element={<EmployeeAdd />} />
+        <Route path='/update/:id' element={<EmployeeUpdate />} />
+      </Routes>
+
     </BrowserRouter>
   )
 }
