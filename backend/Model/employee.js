@@ -28,7 +28,7 @@ const empSchema = new Schema({
     required: true,
   },
   mobile: {
-    type: Number,
+    type: String,
     required: true,
   },
   designation: {
@@ -48,7 +48,7 @@ const empSchema = new Schema({
     required: true,
   },
   Salary: {
-    type: Number,
+    type: String,
     required: true,
   },
   notes: {

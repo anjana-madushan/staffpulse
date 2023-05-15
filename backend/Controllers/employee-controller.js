@@ -52,6 +52,22 @@ export const getAllEmployees = async (req, res) => {
   return res.status(200).json({ employees });
 };
 
+export const getOneEmployee = async (req, res) => {
+  const { id } = req.params;
+
+  let employee;
+  try {
+    employee = await Employee.findById(id);
+    if (!employee) {
+      return res.status(404).json({ message: 'This employer is not Found' });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+  return res.status(200).json({ employee });
+};
+
 export const getFilteredEmployees = async (req, res) => {
   const { type } = req.params;
   let employees;
@@ -71,33 +87,29 @@ export const getFilteredEmployees = async (req, res) => {
 
 export const updateEmployee = async (req, res) => {
   const { id } = req.params;
-  let employee;
 
   try {
-    employee = await Employee.findByIdAndUpdate(id, req.body, { new: true });
+    const employee = await Employee.findByIdAndUpdate(id, req.body, { new: true });
+    if (!employee) {
+      res.status(500).json({ message: 'Unable to Update this Employee' });
+    }
   } catch (err) {
     console.log(err);
   }
 
-  if (!employee) {
-    res.status(500).json({ message: 'Unable to Update this Employee' });
-  }
   return res.json({ message: 'Employee successfully updated' });
 };
 
 export const deleteEmployee = async (req, res) => {
   const { id } = req.params;
 
-  let employee;
-
   try {
-    employee = await Employee.findByIdAndDelete(id);
+    const employee = await Employee.findByIdAndDelete(id);
+    if (!employee) {
+      res.status(500).json({ message: 'Unable to Delete this Employee' });
+    }
   } catch (err) {
     console.log(err);
-  }
-
-  if (!employee) {
-    res.status(500).json({ message: 'Unable to Delete this Employee' });
   }
 
   return res.status(200).json({ message: 'Employee is succesfully deleted' });
