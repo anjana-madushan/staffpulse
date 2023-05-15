@@ -52,6 +52,23 @@ export const getAllEmployees = async (req, res) => {
   return res.status(200).json({ employees });
 };
 
+export const getFilteredEmployees = async (req, res) => {
+  const { type } = req.params;
+  let employees;
+
+  try {
+    employees = await Employee.find({ type });
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!employees || employees.length === 0) {
+    return res.status(404).json({ message: 'No employees Found with this type' });
+  }
+
+  return res.status(200).json({ employees });
+};
+
 export const updateEmployee = async (req, res) => {
   const { id } = req.params;
   let employee;
