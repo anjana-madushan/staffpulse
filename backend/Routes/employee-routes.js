@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/add', addEmployee);
 router.get('/', getAllEmployees);
 router.get('/:id', getOneEmployee);
-router.get('/:type', getFilteredEmployees);
+router.get('/emps/detaills', getFilteredEmployees);
 router.put('/update/:id', updateEmployee);
 router.delete('/delete/:id', deleteEmployee);
 

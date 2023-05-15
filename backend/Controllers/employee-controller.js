@@ -69,20 +69,23 @@ export const getOneEmployee = async (req, res) => {
 };
 
 export const getFilteredEmployees = async (req, res) => {
-  const { type } = req.params;
-  let employees;
+  const type = req.query.type || '';
+
+  const query = {};
+
+  if (type !== 'All') {
+    query.type = type;
+  }
 
   try {
-    employees = await Employee.find({ type });
-  } catch (err) {
-    console.log(err);
-  }
+    const empData = await Employee.find(query);
 
-  if (!employees || employees.length === 0) {
-    return res.status(404).json({ message: 'No employees Found with this type' });
+    res.status(200).json({
+      empData,
+    });
+  } catch (error) {
+    res.status(401).json(error);
   }
-
-  return res.status(200).json({ employees });
 };
 
 export const updateEmployee = async (req, res) => {
