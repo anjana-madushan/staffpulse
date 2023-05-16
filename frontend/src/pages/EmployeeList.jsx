@@ -47,8 +47,8 @@ export default function EmployeeList() {
 
           <select name="type" value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
             <option value="All">Employee Type</option>
-            <option value="Full-time">Full time</option>
-            <option value="Part-time">Part time</option>
+            <option value="Full time">Full time</option>
+            <option value="Part time">Part time</option>
             <option value="Contract Basis">Contract Basis </option>
             <option value="Other">Other</option>
           </select>

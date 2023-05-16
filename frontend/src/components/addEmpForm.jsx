@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom';
 function AddEmpForm({ inputs, handleSubmit, handleChange }) {
 
   const navigate = useNavigate()
+  const formatDate = (date) => {
+    if (!date) return '';
+
+    return new Date(date).toISOString().split('T')[0];
+  };
 
   return (
     <div className="form">
@@ -71,7 +76,7 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
               name="dob"
               id="dob"
               placeholder="Enter dob"
-              value={inputs.dob}
+              value={formatDate(inputs.dob)}
               onChange={handleChange}
             />
           </Form.Group>
@@ -143,7 +148,7 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
               name="joinDate"
               id="joinDate"
               placeholder="Enter joinDate"
-              value={inputs.joinDate}
+              value={formatDate(inputs.joinDate)}
               onChange={handleChange}
             />
           </Form.Group>
