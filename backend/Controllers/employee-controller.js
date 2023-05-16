@@ -55,19 +55,19 @@ export const addEmployee = async (req, res) => {
     try {
       const lastEmpDoc = await Employee.findOne({}, { empNo: 1 }, { sort: { empNo: -1 } });
 
-      if (lastEmpDoc.empNo) {
+      if (lastEmpDoc && lastEmpDoc.empNo) {
         const lastEmpNo = parseInt(lastEmpDoc.empNo, 10);
         eNo = lastEmpNo + 1;
         eNo = eNo.toString().padStart(4, '0');
       } else {
         eNo = '0001';
-        console.log(eNo);
+        // console.log(eNo);
       }
     } catch (err) {
       console.log(err);
       return res.status(500).json({ message: 'internal Server Error' });
     }
-    console.log(`sadf${eNo}`);
+
     let employee;
 
     try {
