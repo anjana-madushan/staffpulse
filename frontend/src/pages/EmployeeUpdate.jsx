@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable consistent-return */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';
 import AddEmpForm from '../components/addEmpForm';
 
@@ -49,7 +51,7 @@ export default function EmployeeUpdate() {
 
     // update api call
     try {
-      const res = axios.put(`http://localhost:5000/employee/update/${id}`, {
+      const res = await axios.put(`http://localhost:5000/employee/update/${id}`, {
         fullName: inputs.fullName,
         nameInitials: inputs.nameInitials,
         preferredName: inputs.preferredName,
@@ -65,9 +67,14 @@ export default function EmployeeUpdate() {
         notes: inputs.notes,
       });
       if (res && res.data) {
-        const data = await res.data;
+        const data = await res.data.employee;
         console.log(data);
-        return data;
+        Swal.fire({
+          icon: 'success',
+          title: 'Employee Updated',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
       navigate('/');
     } catch (err) {

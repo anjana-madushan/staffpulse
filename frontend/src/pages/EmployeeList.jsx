@@ -11,6 +11,8 @@ export default function EmployeeList() {
   const [employee, setEmployees] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const navigate = useNavigate();
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortColumn, setSortColumn] = useState('');
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,14 +44,39 @@ export default function EmployeeList() {
     const fetchEmployees = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/employee/emps/detaills?type=${selectedType}`);
-        setEmployees(response.data.empData);
-        console.log(selectedType);
+        const sortedEmployees = response.data.empData;
+
+        // sorting logic
+        if (sortColumn === 'fullname') {
+          sortedEmployees.sort((a, b) => {
+            const nameA = a.fullName.toLowerCase();
+            const nameB = b.fullName.toLowerCase();
+            if (sortOrder === 'asc') {
+              if (nameA < nameB) return -1;
+              if (nameA > nameB) return 1;
+            } else {
+              if (nameA > nameB) return -1;
+              if (nameA < nameB) return 1;
+            }
+            return 0;
+          });
+        }
+        setEmployees(sortedEmployees);
       } catch (error) {
         console.log(error);
       }
     };
     fetchEmployees();
-  }, [selectedType]);
+  }, [selectedType, sortOrder, sortColumn]);
+
+  const sortHandle = (column) => {
+    if (column === sortColumn) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortColumn(column);
+      setSortOrder('asc');
+    }
+  };
 
   // delete Employees api call
   const deleteHandler = async (id) => {
@@ -79,7 +106,8 @@ export default function EmployeeList() {
         </div>
         <button className="btn btn-primary" onClick={() => navigate('/add')}>Add People</button>
       </div>
-      <Employee employee={records} deleteHandler={deleteHandler} />
+
+      <Employee employee={records} deleteHandler={deleteHandler} sorthandle={sortHandle} />
 
       <div className="pagination_nav">
         <nav>

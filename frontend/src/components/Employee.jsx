@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import '../assets/styles.css';
 
-function Employee({ employee, deleteHandler }) {
+function Employee({ employee, deleteHandler, sorthandle }) {
   const navigate = useNavigate();
   return (
     <div className="table">
@@ -15,7 +15,7 @@ function Employee({ employee, deleteHandler }) {
       <Table responsive="sm">
         <thead>
           <tr className="emp_thead">
-            <th>Full Name</th>
+            <th onClick={() => sorthandle('fullname')}>Full Name</th>
             <th>Emp ID</th>
             <th>Designation</th>
             <th>Type</th>

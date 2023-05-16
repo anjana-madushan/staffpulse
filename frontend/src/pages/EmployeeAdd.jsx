@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import axios from 'axios';
 import AddEmpForm from '../components/addEmpForm';
 import '../assets/styles.css';
@@ -53,11 +55,27 @@ export default function EmployeeAdd() {
       if (res && res.data) {
         const data = await res.data;
         console.log(data);
-        return data;
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Employee added successfully',
+        }).then(() => {
+          navigate('/');
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Failed to add employee',
+        });
       }
-      navigate('/');
     } catch (err) {
       console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred',
+      });
     }
   };
 
