@@ -1,39 +1,42 @@
 import React from 'react'
-import {useNavigate}from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
+import '../assets/styles.css'
 
+const Employee = ({ employee, deleteHandler }) => {
 
-const Employee = ({employee, deleteHandler}) => {
-
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   return (
     <div className='table'>
-      
-      <table>
+
+      <Table responsive="sm">
         <thead>
-          <tr>
+          <tr className='emp_thead'>
             <th>Full Name</th>
             <th>Designation</th>
             <th>Type</th>
             <th>Experience</th>
+            <th></th>
           </tr>
         </thead>
 
         <tbody>
-            {employee.map((employee)=>(
-                <tr>
-            <td>{employee.fullName}</td>
-            <td>{employee.designation}</td>
-            <td>{employee.type}</td>
-            <td>{employee.experience}</td>
-            <td>
-              <button onClick={() => deleteHandler(employee._id)}>Delete</button>
-              <button onClick={()=> navigate(`/update/${employee._id}`)}>Update</button>
-            </td>
-          </tr>
-            ))}
-          
+          {employee.map((employee) => (
+            <tr key={employee._id}>
+              <td>{employee.fullName}</td>
+              <td>{employee.designation}</td>
+              <td>{employee.type}</td>
+              <td>{employee.experience}</td>
+              <td>
+                <button className='table-button' id='btn1' onClick={() => deleteHandler(employee._id)}>Delete</button>
+                <button className='table-button' id='btn2' onClick={() => navigate(`/update/${employee._id}`)}>Update</button>
+              </td>
+            </tr>
+          ))}
+
         </tbody>
-      </table>
+      </Table>
 
     </div>
   )

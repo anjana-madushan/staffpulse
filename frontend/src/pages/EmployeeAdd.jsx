@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AddEmpForm from '../components/addEmpForm';
+import '../assets/styles.css'
 
 export default function EmployeeAdd() {
   const [inputs, setInputs] = useState({
@@ -57,6 +58,8 @@ export default function EmployeeAdd() {
   };
 
   return (
-    <div><AddEmpForm inputs={inputs} handleSubmit={handleSubmit} handleChange={handleChange} /></div>
+    <div><h3>Add People</h3>
+      <hr />
+      <AddEmpForm inputs={inputs} handleSubmit={handleSubmit} handleChange={handleChange} /></div>
   );
 }

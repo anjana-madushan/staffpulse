@@ -48,7 +48,7 @@ const empSchema = new Schema({
     required: true,
   },
   Salary: {
-    type: String,
+    type: Number,
     required: true,
   },
   notes: {

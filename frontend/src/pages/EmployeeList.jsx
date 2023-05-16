@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Employee from '../components/Employee';
+import '../assets/styles.css'
 
 export default function EmployeeList() {
   const [employee, setEmployees] = useState([]);
@@ -37,20 +38,23 @@ export default function EmployeeList() {
 
   return (
     <div>
-      <div className="form-group">
-        <label htmlFor="type">Type
+      <h1>People</h1>
+      <hr />
+      <div className='btn_select_list'>
+
+        <div className="form-group">
+
 
           <select name="type" value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
             <option value="All">Employee Type</option>
-            <option value="fulltime">Full time</option>
-            <option value="parttime">Part time</option>
-            <option value="ContractBasis ">Contract Basis </option>
-            <option value="other">Other</option>
+            <option value="Full-time">Full time</option>
+            <option value="Part-time">Part time</option>
+            <option value="Contract Basis">Contract Basis </option>
+            <option value="Other">Other</option>
           </select>
-        </label>
+        </div>
+        <button className='btn btn-primary' onClick={() => navigate('/add')}>Add People</button>
       </div>
-      <h1>People</h1>
-      <button onClick={() => navigate('/add')}>Add People</button>
       <Employee employee={employee} deleteHandler={deleteHandler} />
 
     </div>

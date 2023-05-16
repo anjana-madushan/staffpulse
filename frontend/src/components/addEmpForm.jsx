@@ -1,195 +1,200 @@
 import React from 'react';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import '../assets/styles.css'
+import { useNavigate } from 'react-router-dom';
 
 function AddEmpForm({ inputs, handleSubmit, handleChange }) {
+
+  const navigate = useNavigate()
+
   return (
     <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Full Name
-          <input
-            value={inputs.fullName}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label htmlFor="fullName">Full Name</Form.Label>
+          <Form.Control
             type="text"
             name="fullName"
-            className="form-control"
             id="fullName"
             placeholder="Enter fullName"
+            value={inputs.fullName}
             onChange={handleChange}
           />
-          </label>
-        </div>
+        </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="nameInitials">
-            Name With Initials
-            <input
-              value={inputs.nameInitials}
+        <Row className="mb-3">
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="nameInitials">Name With Initials</Form.Label>
+            <Form.Control
               type="text"
               name="nameInitials"
-              className="form-control"
               id="nameInitials"
               placeholder="Enter nameInitials"
+              value={inputs.nameInitials}
               onChange={handleChange}
             />
-          </label>
-        </div>
+          </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="preferredName">
-            Preferred Name
-            <input
-              value={inputs.preferredName}
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="preferredName">Preferred Name</Form.Label>
+            <Form.Control
               type="text"
               name="preferredName"
-              className="form-control"
               id="preferredName"
               placeholder="Enter Preferred Name"
+              value={inputs.preferredName}
               onChange={handleChange}
             />
-          </label>
-        </div>
+          </Form.Group>
+        </Row>
 
-        <div className="form-group">
-          <label htmlFor="gender">Gender
+        <Row className="mb-3">
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="gender">Gender</Form.Label>
+            <Form.Control
+              as="select"
+              name="gender"
+              id="gender"
+              value={inputs.gender}
+              onChange={handleChange}
+            >
+              <option>Select the Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </Form.Control>
+          </Form.Group>
 
-          <select name="gender" value={inputs.gender} onChange={handleChange}>
-            <option>Select the Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Femal</option>
-          </select>
-          </label>
-        </div>
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="dob">Date of birth</Form.Label>
+            <Form.Control
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter dob"
+              value={inputs.dob}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Row>
 
-        <div className="form-group">
-          <label htmlFor="email">Email
-          <input
-            value={inputs.email}
-            type="email"
-            name="email"
-            min={100}
-            className="form-control"
-            id="email"
-            placeholder="Enter email"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter email"
+              value={inputs.email}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="dob">Date of birth
-          <input
-            type="date"
-            value={inputs.dob}
-            className="form-control"
-            name="dob"
-            id="dob"
-            placeholder="Enter dob"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="mobile">mobile
-          <input
-            type="text"
-            value={inputs.mobile}
-            className="form-control"
-            name="mobile"
-            id="mobile"
-            placeholder="Enter mobile"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="mobile">Mobile</Form.Label>
+            <Form.Control
+              type="text"
+              name="mobile"
+              id="mobile"
+              placeholder="Enter mobile"
+              value={inputs.mobile}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Row>
 
-        <div className="form-group">
-          <label htmlFor="designation">Designation
-          <input
-            type="text"
-            value={inputs.designation}
-            className="form-control"
-            name="designation"
-            id="designation"
-            placeholder="Enter designation"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="designation">Designation</Form.Label>
+            <Form.Control
+              type="text"
+              name="designation"
+              id="designation"
+              placeholder="Enter designation"
+              value={inputs.designation}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="type">Type
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="type">Type</Form.Label>
+            <Form.Control
+              as="select"
+              name="type"
+              id="type"
+              value={inputs.type}
+              onChange={handleChange}
+            >
+              <option>Employee Type</option>
+              <option value="Full-time">Full time</option>
+              <option value="Part-time">Part time</option>
+              <option value="Contract Basis">Contract Basis</option>
+              <option value="Other">Other</option>
+            </Form.Control>
+          </Form.Group>
+        </Row>
 
-          <select name="type" value={inputs.type} onChange={handleChange}>
-            <option>Employee Type</option>
-            <option value="fulltime">Full time</option>
-            <option value="parttime">Part time</option>
-            <option value="ContractBasis ">Contract Basis </option>
-            <option value="other">Other</option>
-          </select>
-          </label>
-        </div>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="joinDate">Joined Date</Form.Label>
+            <Form.Control
+              type="date"
+              name="joinDate"
+              id="joinDate"
+              placeholder="Enter joinDate"
+              value={inputs.joinDate}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="experince">Experince
-          <input
+          <Form.Group as={Col}>
+            <Form.Label htmlFor="experience">Experience</Form.Label>
+            <Form.Control
+              type="number"
+              name="experience"
+              id="experience"
+              placeholder="Enter experience"
+              value={inputs.experience}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Row>
+
+        <Form.Group>
+          <Form.Label htmlFor="salary">Salary</Form.Label>
+          <Form.Control
             type="number"
-            value={inputs.experience}
-            className="form-control"
-            name="experience"
-            id="experince"
-            placeholder="Enter experince"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="joinDate">Joined Date
-          <input
-            type="date"
-            value={inputs.joinDate}
-            className="form-control"
-            name="joinDate"
-            id="joinDate"
-            placeholder="Enter joinDate"
-            onChange={handleChange}
-          />
-          </label>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="Salary">Salary
-          <input
-            type="text"
-            value={inputs.Salary}
-            className="form-control"
-            name="Salary"
-            id="Salary"
+            name="salary"
+            id="salary"
             placeholder="Enter Salary"
+            value={inputs.salary}
             onChange={handleChange}
           />
-          </label>
-        </div>
+        </Form.Group>
 
-        <div className="form-group">
-          <label htmlFor="note">Personal Notes
-          <input
-            type="text"
-            value={inputs.notes}
-            className="form-control"
+        <Form.Group>
+          <Form.Label htmlFor="notes">Personal Notes</Form.Label>
+          <Form.Control as="textarea"
             name="notes"
-            id="note"
-            placeholder="Enter note"
+            id="notes"
+            placeholder="Enter notes"
+            value={inputs.notes}
             onChange={handleChange}
+            style={{ height: '100px' }}
           />
-          </label>
-        </div>
+        </Form.Group>
 
         <br />
 
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+        <div className='btn_select'>
+          <Button type="submit" id='btn_cancel' onClick={() => navigate('/')}>Cancel</Button>
+          <Button type="submit" variant="primary">Submit</Button>
+        </div>
+
+      </Form>
     </div>
+
   );
 }
 
