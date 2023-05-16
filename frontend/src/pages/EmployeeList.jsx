@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import Employee from '../components/Employee';
 import '../assets/styles.css';
@@ -78,13 +80,24 @@ export default function EmployeeList() {
     }
   };
 
-  // delete Employees api call
   const deleteHandler = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/employee/delete/${id}`);
-      setEmployees((prevEmployees) => prevEmployees.filter((emp) => emp._id !== id));
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(`http://localhost:5000/employee/delete/${id}`);
+        setEmployees((prevEmployees) => prevEmployees.filter((emp) => emp._id !== id));
+        Swal.fire('Deleted!', 'The employee has been deleted.', 'success');
+      }
     } catch (error) {
       console.log(error);
+      Swal.fire('Error', 'An error occurred while deleting the employee.', 'error');
     }
   };
 
