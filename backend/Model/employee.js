@@ -3,6 +3,11 @@ import { mongoose } from 'mongoose';
 const { Schema } = mongoose;
 
 const empSchema = new Schema({
+
+  empNo: {
+    type: String,
+    require: true,
+  },
   fullName: {
     type: String,
     require: true,

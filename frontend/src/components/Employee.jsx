@@ -14,6 +14,7 @@ const Employee = ({ employee, deleteHandler }) => {
         <thead>
           <tr className='emp_thead'>
             <th>Full Name</th>
+            <th>Emp ID</th>
             <th>Designation</th>
             <th>Type</th>
             <th>Experience</th>
@@ -25,6 +26,7 @@ const Employee = ({ employee, deleteHandler }) => {
           {employee.map((employee) => (
             <tr key={employee._id}>
               <td>{employee.fullName}</td>
+              <td>{employee.empNo}</td>
               <td>{employee.designation}</td>
               <td>{employee.type}</td>
               <td>{employee.experience}</td>

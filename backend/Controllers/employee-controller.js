@@ -48,10 +48,29 @@ export const addEmployee = async (req, res) => {
       return res.status(400).json({ message: 'Employee already exist this mobile or email. Enter mobile no and email' });
     }
 
+    // creating autoIncrement emp Id
+    let eNo;
+    try {
+      const lastEmpDoc = await Employee.findOne({}, { empNo: 1 }, { sort: { empNo: -1 } });
+
+      if (lastEmpDoc.empNo) {
+        const lastEmpNo = parseInt(lastEmpDoc.empNo, 10);
+        eNo = lastEmpNo + 1;
+        eNo = eNo.toString().padStart(4, '0');
+      } else {
+        eNo = '0001';
+        console.log(eNo);
+      }
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({ message: 'internal Server Error' });
+    }
+    console.log(`sadf${eNo}`);
     let employee;
 
     try {
       employee = new Employee({
+        empNo: eNo,
         fullName,
         nameInitials,
         preferredName,
