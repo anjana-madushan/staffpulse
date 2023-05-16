@@ -132,6 +132,8 @@ export const getFilteredEmployees = async (req, res) => {
 };
 
 export const updateEmployee = async (req, res) => {
+  const { id } = req.params;
+
   const {
     fullName, nameInitials, preferredName, gender, email, dob, mobile, designation, type, experience, joinDate, Salary, notes,
   } = req.body;
@@ -170,10 +172,10 @@ export const updateEmployee = async (req, res) => {
       console.log(err);
     }
 
-    if (existingEmp) {
+    // eslint-disable-next-line no-underscore-dangle, eqeqeq
+    if (existingEmp && existingEmp._id != id) {
       return res.status(400).json({ message: 'Employee already exist this mobile or email. Enter mobile no and email' });
     }
-    const { id } = req.params;
 
     try {
       const employee = await Employee.findByIdAndUpdate(id, req.body, { new: true });

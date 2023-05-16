@@ -59,8 +59,8 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
               onChange={handleChange}
             >
               <option>Select the Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </Form.Control>
           </Form.Group>
 
@@ -127,8 +127,8 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
               onChange={handleChange}
             >
               <option>Employee Type</option>
-              <option value="Full-time">Full time</option>
-              <option value="Part-time">Part time</option>
+              <option value="Full time">Full time</option>
+              <option value="Part time">Part time</option>
               <option value="Contract Basis">Contract Basis</option>
               <option value="Other">Other</option>
             </Form.Control>
@@ -165,10 +165,10 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
           <Form.Label htmlFor="salary">Salary</Form.Label>
           <Form.Control
             type="number"
-            name="salary"
+            name="Salary"
             id="salary"
             placeholder="Enter Salary"
-            value={inputs.salary}
+            value={inputs.Salary}
             onChange={handleChange}
           />
         </Form.Group>
