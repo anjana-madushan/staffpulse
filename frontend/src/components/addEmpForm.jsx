@@ -155,7 +155,7 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label htmlFor="experience">Experience</Form.Label>
+            <Form.Label htmlFor="experience">Experience(In years)</Form.Label>
             <Form.Control
               type="number"
               name="experience"
@@ -168,7 +168,7 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
         </Row>
 
         <Form.Group>
-          <Form.Label htmlFor="salary">Salary</Form.Label>
+          <Form.Label htmlFor="salary">Salary(Rs.)</Form.Label>
           <Form.Control
             type="number"
             name="Salary"

@@ -30,7 +30,11 @@ function Employee({ employee, deleteHandler, sorthandle }) {
               <td>{employee.empNo}</td>
               <td>{employee.designation}</td>
               <td>{employee.type}</td>
-              <td>{employee.experience}</td>
+              <td>
+                {employee.experience}
+                {' '}
+                years
+              </td>
               <td>
                 <button className="table-button" id="btn1" onClick={() => deleteHandler(employee._id)}>Delete</button>
                 <button className="table-button" id="btn2" onClick={() => navigate(`/update/${employee._id}`)}>Update</button>
