@@ -1,9 +1,13 @@
+/* eslint-disable consistent-return */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AddEmpForm from '../components/addEmpForm';
-import '../assets/styles.css'
+import '../assets/styles.css';
 
 export default function EmployeeAdd() {
+  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     fullName: '',
     nameInitials: '',
@@ -31,7 +35,7 @@ export default function EmployeeAdd() {
     e.preventDefault();
 
     try {
-      const res = axios.post('http://localhost:5000/employee/add', {
+      const res = await axios.post('http://localhost:5000/employee/add', {
         fullName: inputs.fullName,
         nameInitials: inputs.nameInitials,
         preferredName: inputs.preferredName,
@@ -51,15 +55,18 @@ export default function EmployeeAdd() {
         console.log(data);
         return data;
       }
-      throw new Error('Response data is undefined');
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <div><h3>Add People</h3>
+    <div>
+      <h3>Add People</h3>
       <hr />
-      <AddEmpForm inputs={inputs} handleSubmit={handleSubmit} handleChange={handleChange} /></div>
+      <AddEmpForm inputs={inputs} handleSubmit={handleSubmit} handleChange={handleChange} />
+
+    </div>
   );
 }

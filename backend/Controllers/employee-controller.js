@@ -6,6 +6,7 @@ import {
   validateNotesLength, validateNotFutureDate, validateType,
 } from '../Validations/empValidation';
 
+// adding new Employees
 export const addEmployee = async (req, res) => {
   const {
     fullName, nameInitials, preferredName, gender, email, dob, mobile, designation, type, experience, joinDate, Salary, notes,
@@ -98,22 +99,7 @@ export const addEmployee = async (req, res) => {
   }
 };
 
-export const getAllEmployees = async (req, res) => {
-  let employees;
-
-  try {
-    employees = await Employee.find();
-  } catch (err) {
-    console.log(err);
-  }
-
-  if (!employees) {
-    return res.status(404).json({ message: 'No employees Found' });
-  }
-
-  return res.status(200).json({ employees });
-};
-
+// get One Employee
 export const getOneEmployee = async (req, res) => {
   const { id } = req.params;
 
@@ -130,6 +116,7 @@ export const getOneEmployee = async (req, res) => {
   return res.status(200).json({ employee });
 };
 
+// Fetching data based on the type
 export const getFilteredEmployees = async (req, res) => {
   const type = req.query.type || '';
 
@@ -150,6 +137,7 @@ export const getFilteredEmployees = async (req, res) => {
   }
 };
 
+// updateing employees
 export const updateEmployee = async (req, res) => {
   const { id } = req.params;
 
@@ -209,6 +197,7 @@ export const updateEmployee = async (req, res) => {
   }
 };
 
+// deleting emplpoyees
 export const deleteEmployee = async (req, res) => {
   const { id } = req.params;
 

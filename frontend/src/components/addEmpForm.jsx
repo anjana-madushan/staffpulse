@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import '../assets/styles.css'
+import {
+  Form, Button, Row, Col,
+} from 'react-bootstrap';
+import '../assets/styles.css';
 import { useNavigate } from 'react-router-dom';
 
 function AddEmpForm({ inputs, handleSubmit, handleChange }) {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const formatDate = (date) => {
     if (!date) return '';
 
@@ -95,7 +97,6 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
             />
           </Form.Group>
 
-
           <Form.Group as={Col}>
             <Form.Label htmlFor="mobile">Mobile</Form.Label>
             <Form.Control
@@ -180,7 +181,8 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
 
         <Form.Group>
           <Form.Label htmlFor="notes">Personal Notes</Form.Label>
-          <Form.Control as="textarea"
+          <Form.Control
+            as="textarea"
             name="notes"
             id="notes"
             placeholder="Enter notes"
@@ -192,8 +194,8 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
 
         <br />
 
-        <div className='btn_select'>
-          <Button type="submit" id='btn_cancel' onClick={() => navigate('/')}>Cancel</Button>
+        <div className="btn_select">
+          <Button type="submit" id="btn_cancel" onClick={() => navigate('/')}>Cancel</Button>
           <Button type="submit" variant="primary">Submit</Button>
         </div>
 

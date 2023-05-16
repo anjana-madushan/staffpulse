@@ -1,24 +1,25 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-shadow */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-import '../assets/styles.css'
+import '../assets/styles.css';
 
-const Employee = ({ employee, deleteHandler }) => {
-
-  const navigate = useNavigate()
+function Employee({ employee, deleteHandler }) {
+  const navigate = useNavigate();
   return (
-    <div className='table'>
+    <div className="table">
 
       <Table responsive="sm">
         <thead>
-          <tr className='emp_thead'>
+          <tr className="emp_thead">
             <th>Full Name</th>
             <th>Emp ID</th>
             <th>Designation</th>
             <th>Type</th>
             <th>Experience</th>
-            <th></th>
           </tr>
         </thead>
 
@@ -31,8 +32,8 @@ const Employee = ({ employee, deleteHandler }) => {
               <td>{employee.type}</td>
               <td>{employee.experience}</td>
               <td>
-                <button className='table-button' id='btn1' onClick={() => deleteHandler(employee._id)}>Delete</button>
-                <button className='table-button' id='btn2' onClick={() => navigate(`/update/${employee._id}`)}>Update</button>
+                <button className="table-button" id="btn1" onClick={() => deleteHandler(employee._id)}>Delete</button>
+                <button className="table-button" id="btn2" onClick={() => navigate(`/update/${employee._id}`)}>Update</button>
               </td>
             </tr>
           ))}
@@ -41,7 +42,7 @@ const Employee = ({ employee, deleteHandler }) => {
       </Table>
 
     </div>
-  )
+  );
 }
 
-export default Employee
+export default Employee;
