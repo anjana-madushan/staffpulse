@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable max-len */
 import express from 'express';
 
 import {
   addEmployee, deleteEmployee, getFilteredEmployees, getOneEmployee, updateEmployee,
-} from '../Controllers/employee-controller';
+} from '../Controllers/employee-controller.js';
 
 const router = express.Router();
 
