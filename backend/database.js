@@ -1,8 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+
+dotenv.config();
 
 const dbConnection = async () => {
   try {
-    const link = 'mongodb+srv://anjanapasindu20:fqQYmfY9LUU9i5bB@employeecluster.htpi6xk.mongodb.net/Employee_Base?retryWrites=true&w=majority';
+    const link = process.env.EMP_DB_LINK;
     mongoose.connect(link, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
