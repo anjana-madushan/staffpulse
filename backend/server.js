@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import dbConnection from './database.js';
+import dbConnection from './config/database.js';
 import router from './Routes/employee-routes.js';
 
 dotenv.config();
