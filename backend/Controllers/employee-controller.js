@@ -2,11 +2,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
 /* eslint-disable max-len */
-import Employee from '../Model/employee.js';
+import Employee from '../model/employee.js';
 import {
   validateEmail, validateMobileNumber, validateGender, validateExperience, validateSalary,
   validateNotesLength, validateNotFutureDate, validateType,
-} from '../Validations/empValidation.js';
+} from '../validations/emp-validation.js';
 
 // adding new Employees
 export const addEmployee = async (req, res) => {

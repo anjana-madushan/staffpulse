@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';
-import AddEmpForm from '../components/addEmpForm';
+import AddEmpForm from '../components/create-employee-form';
 
 export default function EmployeeUpdate() {
   const { id } = useParams();

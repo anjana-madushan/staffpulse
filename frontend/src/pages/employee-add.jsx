@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import AddEmpForm from '../components/addEmpForm';
+import AddEmpForm from '../components/create-employee-form';
 import '../assets/styles.css';
 
 export default function EmployeeAdd() {
