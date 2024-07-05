@@ -6,7 +6,7 @@ import {
 import '../assets/styles.css';
 import { useNavigate } from 'react-router-dom';
 
-function AddEmpForm({ inputs, handleSubmit, handleChange }) {
+function CreateEmployeeForm({ inputs, handleSubmit, handleChange }) {
   const navigate = useNavigate();
   const formatDate = (date) => {
     if (!date) return '';
@@ -205,4 +205,4 @@ function AddEmpForm({ inputs, handleSubmit, handleChange }) {
   );
 }
 
-export default AddEmpForm;
+export default CreateEmployeeForm;
