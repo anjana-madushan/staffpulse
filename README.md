@@ -68,15 +68,15 @@ Install the required dependencies for both the backend and frontend:
 
 *   cd backend npm install/npm i
     
-*   cd ../frontend npm install/npm i
+*   cd frontend npm install/npm i
     
 
 #### **3\. Set Up Environment Variables**
 
 In the backend directory, create a .env file and configure the following environment variables:
 
--- PORT=5000
--- MONGO_URI=Your MongoDB connection string
+- **PORT=5000**
+- **MONGO_URI=Your MongoDB connection string**
 
 *   Replace with your MongoDB URI (local or cloud).
     
