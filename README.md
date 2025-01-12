@@ -75,8 +75,8 @@ Install the required dependencies for both the backend and frontend:
 
 In the backend directory, create a .env file and configure the following environment variables:
 
-- PORT=5000
-- MONGO_URI=Your MongoDB connection string
+-- PORT=5000
+-- MONGO_URI=Your MongoDB connection string
 
 *   Replace with your MongoDB URI (local or cloud).
     
