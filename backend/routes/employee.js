@@ -4,7 +4,7 @@ import express from 'express';
 
 import {
   addEmployee, deleteEmployee, getFilteredEmployees, getOneEmployee, updateEmployee,
-} from '../controllers/employee-controller.js';
+} from '../controllers/employee.js';
 
 const router = express.Router();
 
