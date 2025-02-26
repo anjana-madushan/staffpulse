@@ -11,7 +11,6 @@ Currently, the app supports **CRUD operations** for employee data and the abilit
 ### **Current Features**
 - **Employee Management**: Add, view, update, and delete employee records seamlessly.
 - **Sorting**: Sort employees based on their name or ID for easier navigation.
-- **CRUD Operations**: Efficient and reliable database interactions using MongoDB.
 
 ### **Planned Features**
 - **Leave Request System**: Employees can request leaves through the system for better workflow management.
