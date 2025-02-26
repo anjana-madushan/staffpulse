@@ -28,21 +28,6 @@ The app is built with the following technologies:
 
 ---
 
-## **User Interfaces**
-
-### **Employers Page**
---
-![image](https://github.com/user-attachments/assets/8ecfd00f-8b93-48ca-891c-4229a9888022)
-
-### **Demo Video of Stuff Pulse**
-- **Add Employee**
-- **Update & View Specific Employee**
-- **Display All the Employees**
-- **Sort Employees Based on the Name**
-- **Filter Employees Based on the Job Type**
-  
-https://github.com/user-attachments/assets/4343cc2a-78d2-4493-b155-f5856f59f7d4
-
 ## **How to Install and Set Up Locally**
 
 Follow these steps to install and set up the Staff Pulse App on your local machine:
